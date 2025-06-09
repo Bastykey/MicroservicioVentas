@@ -44,7 +44,7 @@ public class ventaController {
                 return ResponseEntity.badRequest().body("Fecha de venta inválida");
             }
             
-            venta ventaNueva = ventaService.GuardarVenta(venta);
+            venta ventaNueva = ventaService.guardarVenta(venta);
             return ResponseEntity.status(HttpStatus.CREATED).body(ventaNueva);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -65,7 +65,7 @@ public class ventaController {
                 return ResponseEntity.badRequest().body("Fecha inválida");
             }
             
-            List<venta> ventas = ventaService.BuscarPorFecha(fecha);
+            List<venta> ventas = (List<venta>) ventaService.BuscarFecha(fecha);
             return ventas.isEmpty() ? 
                 ResponseEntity.noContent().build() : 
                 ResponseEntity.ok(ventas);

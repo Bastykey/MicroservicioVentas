@@ -16,7 +16,7 @@ private ventaService ventaservice;
 
     @Test 
     public void testBuscarVenta(){
-        venta ventaBuscada = ventaservice.BuscarUnaVenta(179);
+        venta ventaBuscada = (venta) ventaservice.BuscarFecha(179);
         assertEquals("10026478-9", ventaBuscada.getRutusuario());
 }
 
@@ -26,7 +26,7 @@ private ventaService ventaservice;
         venta V= new venta();
     V.setFechaventa(LocalDate.now());
     V.setRutusuario("99999999-9");
-    venta VentaRegistrada = ventaservice.GuardarVenta(V);
+    venta VentaRegistrada = ventaservice.guardarVenta(V);
     assertEquals(240, VentaRegistrada.getFechaventa());
 
 
